@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/util
+   		   http://www.springframework.org/schema/util/spring-util.xsd">
+    <util:list id="phoneList" value-type="org.example.Phone">
+        <ref bean ="phone1"/>
+        <ref bean ="phone2"/>
+    </util:list>
+    <bean id="phone1" class="org.example.Phone">
+        <property name="mob" value="(714) 383 1268"/>
+    </bean>
+    <bean id="phone2" class="org.example.Phone">
+        <property name="mob" value="(714) 837 2804"/>
+    </bean>
+<bean id="Student" class="org.example.Student">
+    <property name="id"  value="1"/>
+    <property name="name" value="Khang"/>
+    <property name="phones" ref="phoneList"/>
+    <property name="address" ref="Address"/>
+</bean>
+<bean id="Address" class="org.example.Address">
+    <property name="city" value="Cypress"/>
+    <property name="state" value="Texas"/>
+    <property name="country" value="U.S"/>
+    <property name="zipcode" value="77429"/>
+</bean>
+</beans>
